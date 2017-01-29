@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+
+
 const ContactListNavbar = () => {
     return (
         <div className="navbar-inner">

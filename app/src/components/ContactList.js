@@ -1,18 +1,19 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
+import ContactListItem from './ContactListItem'
+import {connect} from 'react-redux'
 
-const ContactList = () => {
-    var href = '#contact?id=1';
+const ContactList = ({contacts}) => {
     return (
         <div data-page="contactlist" className="page">
         <div className="page-content">
             <div className="list-block contacts-list">
                 <ul>
-                    <li>
-                      <a href={href} className=" item-content item-link">
-                        <div className="item-media"><i className="ion ion-ios-person"></i></div>
-                        <div className="item-inner"><div className="item-title">Test</div></div>
-                      </a>
-                    </li>
+                    {contacts.map(contact =>
+                      <ContactListItem
+                        key={contact.id}
+                        {...contact} 
+                      />
+                    )}
                 </ul>
             </div>
         </div>
@@ -20,4 +21,15 @@ const ContactList = () => {
     )
 }
 
-export default ContactList;
+ContactList.propTypes = {
+  contacts: PropTypes.arrayOf(PropTypes.shape({
+    firstName: PropTypes.string.isRequired,
+    lastName: PropTypes.string.isRequired,
+    number: PropTypes.string.isRequired
+  }).isRequired).isRequired
+}
+
+export default connect(
+  state => ({contacts: state.contacts})
+)(ContactList)
+

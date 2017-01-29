@@ -4,7 +4,6 @@ import ContactListNavbar from './ContactListNavbar'
 import Contact from './Contact'
 import ContactNavbar from './ContactNavbar'
 import NewContactPopup from './NewContactPopup'
-import NewContactNavbar from './NewContactNavbar'
 
 const MainView = (props) => {
     return (
@@ -22,14 +21,7 @@ const MainView = (props) => {
             </div>
         </div>
         <div className="popup popup-new">
-            <div className="view">
-                <div className="navbar">
-                    <NewContactNavbar/>
-                </div>
-                <div className="pages navbar-through toolbar-through">
-                    <NewContactPopup/>
-                </div>
-            </div>
+            <NewContactPopup/>
         </div>
         </div>
     )

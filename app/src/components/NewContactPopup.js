@@ -1,7 +1,27 @@
 import React, { Component } from 'react'
 
-const ContactList = () => {
-    
+const NewContactNavbar = () => {
+    function handleSave() {
+        
+    }
+    return (
+        <div className="navbar-inner">
+            <div className="left sliding">
+                <a href="#" className="close-popup link" onClick={handleSave}>
+                    <span>Cancel</span>
+                </a>
+            </div>
+            <div className="center contacts-header">New Contact</div>
+            <div className="right contact-save-link">
+                <a href="#" className="close-popup link" onClick={handleSave}>
+                    <span>Save</span>
+                </a>
+            </div>
+        </div>
+    )
+}
+
+const NewContactPopupView = () => {
     return (
         <div className="page">
         <div className="page-content">
@@ -25,7 +45,7 @@ const ContactList = () => {
                         <li className="item-content">
                           <div className="item-inner">
                             <div className="item-input">
-								<input type="number" name="phone" placeholder="Phone" />
+								<input type="text" name="phone" placeholder="Phone" />
 							</div>
                           </div>
                         </li>
@@ -37,4 +57,19 @@ const ContactList = () => {
     )
 }
 
-export default ContactList;
+
+const NewContactPopup = () => {
+    
+    return (
+        <div className="view">
+            <div className="navbar">
+                <NewContactNavbar/>
+            </div>
+            <div className="pages navbar-through toolbar-through">
+                <NewContactPopupView/>
+            </div>
+        </div>
+    )
+}
+
+export default NewContactPopup;
