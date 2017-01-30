@@ -1,8 +1,9 @@
 import React, { Component, PropTypes } from 'react'
 import ContactListItem from './ContactListItem'
 import {connect} from 'react-redux'
+import { setContact } from '../actions'
 
-const ContactList = ({contacts}) => {
+const ContactList = ({contacts, onContactClick}) => {
     return (
         <div data-page="contactlist" className="page">
         <div className="page-content">
@@ -12,6 +13,7 @@ const ContactList = ({contacts}) => {
                       <ContactListItem
                         key={contact.id}
                         {...contact} 
+                        onContactClick={onContactClick}
                       />
                     )}
                 </ul>
@@ -26,10 +28,20 @@ ContactList.propTypes = {
     firstName: PropTypes.string.isRequired,
     lastName: PropTypes.string.isRequired,
     number: PropTypes.string.isRequired
-  }).isRequired).isRequired
+  }).isRequired).isRequired,
+    onContactClick: PropTypes.func.isRequired
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onContactClick: (id) => {
+      dispatch(setContact(id))
+    }
+  }
 }
 
 export default connect(
-  state => ({contacts: state.contacts})
+  state => ({contacts: state.contacts}),
+    mapDispatchToProps
 )(ContactList)
 

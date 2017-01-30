@@ -46,8 +46,7 @@ const ContactDetails = ({contact}) => {
 }
 
 const getContact = (contacts, id) => {
-    var test = contacts[id];
-    return test;
+    return contacts[id];
 }
 
 const mapStateToProps = (state) => {
