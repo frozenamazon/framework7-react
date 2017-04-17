@@ -2,6 +2,10 @@
 This project is an example of Framework 7, React, Redux and Webpack.
 This example is taken from one of the demo apps from Framework7, but using Redux and webpack.
 
+*Notes*
+Framework7 has released a new library (react-framework7) recently. More information please refer to the f7 website.
+https://framework7.io/react/
+Redux still is not implemented as part of the demo, but the code in this project should assist you on how to set up.
 
 ## About
 
